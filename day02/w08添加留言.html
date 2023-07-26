@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+        li a {
+            flex: right;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    
+    <script>
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        // 2. 注册事件
+        btn.addEventListener('click',function () {  
+            console.log('111');
+            if (text.value == '') {
+                alert('请输入内容')
+                return false
+                
+            } else {
+                // 创建节点
+                let li = document.createElement('li')
+                // 先创建，再赋值内容
+                li.innerHTML = text.value+ '<a href="JavaScript:;">删除</a>'
+                // 插入节点
+                ul.insertBefore(li,ul.children[0])
+                // 清除输入框
+                text.value = ''
+            }
+            let shanchul = document.querySelectorAll('ul li a')
+            for (let index = 0; index < shanchul.length; index++) {
+                const element = shanchul[index];
+                element.addEventListener('click',function () { 
+                    // removeChild是父级的方法，此处是要删除点击元素的父级，所以需要再次获取父级
+                    element.parentNode.parentNode.removeChild(element.parentNode)
+                })
+                
+            }
+
+             
+                
+           
+        })
+        
+    </script>
+</body>
+
+</html>

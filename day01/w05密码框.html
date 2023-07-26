@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 200px auto;
+        }
+
+        .box #pwd {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            width: 24px;
+            top: 3px;
+            right: 3px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img id="eyes" src="./images/close.png" alt="">
+        </label>
+        <input id="pwd" type="password">
+    </div>
+    <script>
+        // 获取
+        let eyes = document.getElementById('eyes')
+        let pwd = document.getElementById('pwd')
+        let n = 0
+        // 监听事件并处理
+        eyes.addEventListener('click', function () {
+            if (n === 0) {
+                pwd.type = 'text'
+                eyes.src = './images/open.png'
+                n = 1
+                
+            } else if (n === 1) {
+                pwd.type = 'password'
+                eyes.src = './images/close.png'
+                n = 0
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
