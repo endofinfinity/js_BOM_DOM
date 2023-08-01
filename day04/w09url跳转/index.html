@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // type="submit"才跳转生效，button不生效跳转页面
+        // console.log(location.search);
+        let params = location.search.substr(1)
+        // split返回一个Array，是真数组
+        let arr = params.split('=')
+        // console.log(arr);
+        const divhuan =document.querySelector('div')
+        divhuan.innerHTML = `${arr[1]} 欢迎您！`
+
+    </script>
+</body>
+</html>

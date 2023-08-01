@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        const btn = document.querySelector('button')
+        const div = document.querySelector('div')
+        btn.addEventListener('click',function () {  
+            // 不加http://，直接写www.baidu.com。会产生跨域请求问题
+            location.href = 'http://www.baidu.com'
+        })
+        let times = 5
+        div.innerHTML = `您将在${times}秒钟之后跳转到首页`
+        setInterval(function () {  
+            if (times <= 0) {
+                location.href = 'http://www.baidu.com'
+
+            } else  {
+                div.innerHTML = `您将在${times}秒钟之后跳转到首页`
+                times--
+
+            }
+            
+        },1000)
+
+    </script>
+</body>
+</html>
